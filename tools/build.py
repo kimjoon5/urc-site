@@ -91,9 +91,6 @@ class Page:
 
 def footer_html(page):
     foot = SITE["footer"]
-    links = " ".join(
-        f'<a href="{esc(page.base + n["path"] if n["path"] else (page.base or "./"))}">{esc(n["label"])}</a>' for n in SITE["nav"]
-    )
     return f'''
   <footer class="foot">
     <div class="foot-inner">
@@ -109,7 +106,6 @@ def footer_html(page):
           </dl>
         </div>
       </div>
-      <div class="foot-line"><span>URC</span><nav class="foot-nav">{links}</nav></div>
     </div>
   </footer>'''
 
