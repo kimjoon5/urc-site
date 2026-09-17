@@ -310,7 +310,7 @@ def build_research():
         </article>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue
-        if g.get("semesters"):
+        if g.get("semesters") and g["semesters"][0].get("topics"):
             semester_tabs = "".join(f'''<button class="semester-tab" type="button" role="tab" data-semester-tab="{esc(s["id"])}" aria-selected="{'true' if i == 0 else 'false'}" tabindex="{0 if i == 0 else -1}">{esc(s["label"])}</button>''' for i, s in enumerate(g["semesters"]))
             panels = []
             for semester_index, semester in enumerate(g["semesters"]):
@@ -322,9 +322,27 @@ def build_research():
               <ol class="issue-list">{topics}</ol>
             </article>
           </div>''')
-            content = f'''<div class="issue-report">
+            content = f'''<div class="issue-report" data-semester-report>
           <p class="lead issue-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
           <div class="semester-tabs" role="tablist" aria-label="Issue Report 학기 선택" data-reveal style="--d:150ms">{semester_tabs}</div>
+          {chr(10).join(panels)}
+        </div>'''
+            pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
+            continue
+        if g.get("semesters") and g["semesters"][0].get("categories"):
+            semester_tabs = "".join(f'''<button class="semester-tab" type="button" role="tab" data-semester-tab="{esc(s["id"])}" aria-selected="{'true' if i == 0 else 'false'}" tabindex="{0 if i == 0 else -1}">{esc(s["label"])}</button>''' for i, s in enumerate(g["semesters"]))
+            panels = []
+            for semester_index, semester in enumerate(g["semesters"]):
+                categories = "".join(f'''<section class="im-category" data-reveal style="--d:{i * 80 + 180}ms">
+              <p class="im-category-title">{esc(category["title"])}</p>
+              <ol class="im-list">{"".join(f'<li><span class="n">{j + 1:02d}</span><span>{esc(project)}</span></li>' for j, project in enumerate(category["items"]))}</ol>
+            </section>''' for i, category in enumerate(semester["categories"]))
+                panels.append(f'''<div class="semester-panel" data-semester="{esc(semester["id"])}"{'' if semester_index == 0 else ' hidden'}>
+            <div class="im-categories">{categories}</div>
+          </div>''')
+            content = f'''<div class="im-report" data-semester-report>
+          <p class="lead im-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
+          <div class="semester-tabs" role="tablist" aria-label="IM Project 학기 선택" data-reveal style="--d:150ms">{semester_tabs}</div>
           {chr(10).join(panels)}
         </div>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')

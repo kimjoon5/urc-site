@@ -193,7 +193,7 @@
 
   /* ── project: Issue Report semester tabs ─────────────────── */
   document.querySelectorAll(".semester-tabs").forEach((tabs) => {
-    const report = tabs.closest(".issue-report");
+    const report = tabs.closest("[data-semester-report]");
     const buttons = Array.from(tabs.querySelectorAll("[data-semester-tab]"));
     const panels = Array.from(report.querySelectorAll(".semester-panel"));
     const showSemester = (id) => {
