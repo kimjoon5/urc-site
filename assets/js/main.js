@@ -1,10 +1,9 @@
 /* URC — interactions
-   nav (hide on scroll / mobile menu), full-screen section scrolling, section dots,
+   nav (hide on scroll / mobile menu), section dots,
    scroll reveal, members generation switcher, hash deep links */
 (function () {
   "use strict";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const coarse = window.matchMedia("(pointer: coarse)").matches;
   const body = document.body;
 
   /* ── nav ─────────────────────────────────────────────────── */
@@ -48,10 +47,10 @@
   };
   observe(document);
 
-  /* ── full-screen sections ────────────────────────────────── */
+  /* ── section navigation ──────────────────────────────────── */
   const secs = Array.from(document.querySelectorAll(".sec"));
   const dots = document.querySelector(".dots");
-  let current = 0, lock = false, tween = 0, acc = 0, accTimer = 0, lastJump = 0;
+  let current = 0, lock = false, tween = 0;
 
   const topOf = (i) => Math.round(secs[i].getBoundingClientRect().top + window.scrollY);
   const indexAt = () => {
@@ -80,51 +79,11 @@
   const go = (i, dur = 900) => {
     if (!secs.length) return;
     i = Math.max(0, Math.min(secs.length - 1, i));
-    lock = true; lastJump = performance.now();
+    lock = true;
     setActive(i);
     scrollTo(topOf(i), dur);
-    setTimeout(() => { lock = false; acc = 0; }, dur + 150);
+    setTimeout(() => { lock = false; }, dur + 150);
   };
-
-  // wheel: one gesture = one section (mouse / trackpad)
-  if (secs.length > 1 && !coarse && !body.classList.contains("scroll-natural")) {
-    window.addEventListener("wheel", (e) => {
-      if (body.classList.contains("menu-open")) return;
-      if (lock) { e.preventDefault(); return; }
-      const i = indexAt();
-      const s = secs[i];
-      const top = topOf(i), bottom = top + s.offsetHeight, vh = window.innerHeight, y = window.scrollY;
-      const tall = s.offsetHeight > vh + 4;
-      if (e.deltaY > 0) {
-        if (tall && y + vh < bottom - 4) return;               // native scroll inside a tall section
-        if (i >= secs.length - 1) return;
-      } else {
-        if (tall && y > top + 4) return;
-        if (i <= 0) return;
-      }
-      e.preventDefault();
-      if (performance.now() - lastJump < 1400 && Math.abs(e.deltaY) < 40) return;   // trackpad inertia
-      acc += e.deltaY;
-      clearTimeout(accTimer); accTimer = setTimeout(() => { acc = 0; }, 220);
-      if (Math.abs(acc) >= 40) { acc = 0; go(i + (e.deltaY > 0 ? 1 : -1)); }
-    }, { passive: false });
-
-    window.addEventListener("keydown", (e) => {
-      if (body.classList.contains("menu-open") || e.metaKey || e.ctrlKey || e.altKey) return;
-      if (/INPUT|TEXTAREA|SELECT/.test((e.target && e.target.tagName) || "")) return;
-      const i = indexAt();
-      const s = secs[i], top = topOf(i), bottom = top + s.offsetHeight, vh = window.innerHeight, y = window.scrollY;
-      const tall = s.offsetHeight > vh + 4;
-      if (e.key === "ArrowDown" || e.key === "PageDown" || (e.key === " " && !e.shiftKey)) {
-        if (tall && y + vh < bottom - 4) return;
-        e.preventDefault(); go(i + 1);
-      } else if (e.key === "ArrowUp" || e.key === "PageUp" || (e.key === " " && e.shiftKey)) {
-        if (tall && y > top + 4) return;
-        e.preventDefault(); go(i - 1);
-      } else if (e.key === "Home") { e.preventDefault(); go(0); }
-      else if (e.key === "End") { e.preventDefault(); go(secs.length - 1); }
-    });
-  }
 
   // keep dots / active section in sync with native or touch scrolling
   let syncTick = false;
