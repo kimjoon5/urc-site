@@ -289,10 +289,16 @@ main { position: relative; z-index: 10; }
 @media (min-width: 768px) { .archive-feature { grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr); gap: 42px; } }
 .issue-report { max-width: 860px; }
 .issue-copy { margin: 0; }
-.issue-period { margin-top: 30px; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; color: var(--blue); }
-.issue-list { margin-top: 10px; border-top: 1px solid var(--line-soft); }
+.semester-control { display: flex; align-items: center; gap: 16px; margin-top: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: var(--blue); }
+.semester-select { min-width: 112px; padding: 8px 32px 8px 11px; border: 1px solid var(--line); border-radius: 0; background: #fff; color: var(--navy); font: inherit; letter-spacing: 0.08em; cursor: pointer; }
+.semester-panel { margin-top: 16px; }
+.semester-panel[hidden] { display: none; }
+.issue-layout { display: grid; gap: 22px; align-items: start; }
+.issue-cover { aspect-ratio: 13 / 9; }
+.issue-list { margin-top: 0; border-top: 1px solid var(--line-soft); }
 .issue-list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line-soft); font-size: 16px; font-weight: 500; letter-spacing: -0.01em; color: var(--navy); }
 .issue-list .n { padding-top: 3px; color: var(--blue); }
+@media (min-width: 768px) { .issue-layout { grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr); gap: 34px; } }
 
 /* ── network ───────────────────────────────────────────────── */
 .advisor { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 24px; align-items: start; }

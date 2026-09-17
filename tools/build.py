@@ -309,12 +309,22 @@ def build_research():
         </article>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue
-        if g.get("topics"):
-            topics = "".join(f'''<li data-reveal style="--d:{i * 55 + 180}ms"><span class="n">{i + 1:02d}</span><span>{esc(topic)}</span></li>''' for i, topic in enumerate(g["topics"]))
+        if g.get("semesters"):
+            options = "".join(f'<option value="{esc(s["id"])}">{esc(s["label"])}</option>' for s in g["semesters"])
+            panels = []
+            for semester_index, semester in enumerate(g["semesters"]):
+                topics = "".join(f'''<li data-reveal style="--d:{i * 55 + 180}ms"><span class="n">{i + 1:02d}</span><span>{esc(topic)}</span></li>''' for i, topic in enumerate(semester["topics"]))
+                cover = f'''<figure class="photo issue-cover" data-reveal style="--d:160ms">{img(semester["image"], base, semester.get("image_alt", g["heading"]), 1040, 720)}</figure>''' if semester.get("image") else ""
+                panels.append(f'''<div class="semester-panel" data-semester="{esc(semester["id"])}"{'' if semester_index == 0 else ' hidden'}>
+            <article class="issue-layout{'' if cover else ' no-cover'}">
+              {cover}
+              <ol class="issue-list">{topics}</ol>
+            </article>
+          </div>''')
             content = f'''<div class="issue-report">
           <p class="lead issue-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
-          <div class="issue-period" data-reveal style="--d:150ms">{esc(g["period"])}</div>
-          <ol class="issue-list">{topics}</ol>
+          <label class="semester-control" data-reveal style="--d:150ms"><span>Semester</span><select class="semester-select" data-semester-select aria-label="Issue Report 학기 선택">{options}</select></label>
+          {chr(10).join(panels)}
         </div>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue

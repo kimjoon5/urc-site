@@ -191,6 +191,15 @@
   });
   if (gens.length) showGen(gens[0].dataset.gen, { push: false });
 
+  /* ── project: Issue Report semester selector ─────────────── */
+  document.querySelectorAll("[data-semester-select]").forEach((select) => {
+    const report = select.closest(".issue-report");
+    const panels = Array.from(report.querySelectorAll(".semester-panel"));
+    const showSemester = (id) => panels.forEach((panel) => { panel.hidden = panel.dataset.semester !== id; });
+    showSemester(select.value);
+    select.addEventListener("change", () => showSemester(select.value));
+  });
+
   /* ── initial state from hash ─────────────────────────────── */
   const applyHash = () => {
     const h = (location.hash || "").replace(/^#/, "");
