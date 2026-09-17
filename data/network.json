@@ -426,7 +426,9 @@
           "name": "최석환",
           "role": "부회장",
           "dept": "도시공학과 22",
-          "careers": [],
+          "careers": [
+            "한국리노베링"
+          ],
           "photo": "assets/img/member-5th-03.jpg"
         },
         {
