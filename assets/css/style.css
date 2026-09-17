@@ -252,6 +252,10 @@ main { position: relative; z-index: 10; }
 .value p { margin-top: 14px; font-size: 14.5px; line-height: 1.85; color: var(--text-2); }
 .letter p:first-child { font-size: 17px; font-weight: 500; color: var(--navy); }
 .letter p:last-child { color: var(--blue); font-weight: 500; }
+.greeting-role { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: var(--muted); }
+.greeting-name { margin-top: 6px; font-size: clamp(38px, 4.6vw, 60px) !important; font-weight: 600; line-height: 1.08; letter-spacing: -0.045em; color: var(--blue) !important; }
+.greeting-person::after { content: ""; display: block; width: 100%; max-width: 520px; height: 2px; margin-top: 18px; background: linear-gradient(to right, var(--blue) 0 96px, var(--line) 96px 100%); }
+.greeting-person .letter { margin-top: 24px; }
 
 /* ── curriculum ────────────────────────────────────────────── */
 .step-bar { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }

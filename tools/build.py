@@ -246,8 +246,9 @@ def build_about():
           <div>
             <div class="photo portrait">{img(g["photo"], base, g["name"], 453, 545)}</div>
           </div>
-          <div>
-            <h2>{esc(g["name"])}</h2>
+          <div class="greeting-person">
+            <p class="greeting-role">{esc(g["role"])}</p>
+            <h2 class="greeting-name">{esc(g["name"])}</h2>
             <div class="lead-block letter">{gparas}</div>
           </div>
         </article>''')
