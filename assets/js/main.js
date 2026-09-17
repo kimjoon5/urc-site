@@ -191,13 +191,26 @@
   });
   if (gens.length) showGen(gens[0].dataset.gen, { push: false });
 
-  /* ── project: Issue Report semester selector ─────────────── */
-  document.querySelectorAll("[data-semester-select]").forEach((select) => {
-    const report = select.closest(".issue-report");
+  /* ── project: Issue Report semester tabs ─────────────────── */
+  document.querySelectorAll(".semester-tabs").forEach((tabs) => {
+    const report = tabs.closest(".issue-report");
+    const buttons = Array.from(tabs.querySelectorAll("[data-semester-tab]"));
     const panels = Array.from(report.querySelectorAll(".semester-panel"));
-    const showSemester = (id) => panels.forEach((panel) => { panel.hidden = panel.dataset.semester !== id; });
-    showSemester(select.value);
-    select.addEventListener("change", () => showSemester(select.value));
+    const showSemester = (id) => {
+      buttons.forEach((button) => { const on = button.dataset.semesterTab === id; button.setAttribute("aria-selected", String(on)); button.tabIndex = on ? 0 : -1; });
+      panels.forEach((panel) => { panel.hidden = panel.dataset.semester !== id; });
+    };
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => showSemester(button.dataset.semesterTab));
+      button.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        const i = buttons.indexOf(button);
+        const next = buttons[(i + (e.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length];
+        next.focus(); showSemester(next.dataset.semesterTab);
+      });
+    });
+    if (buttons.length) showSemester(buttons[0].dataset.semesterTab);
   });
 
   /* ── initial state from hash ─────────────────────────────── */

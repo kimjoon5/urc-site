@@ -310,7 +310,7 @@ def build_research():
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue
         if g.get("semesters"):
-            options = "".join(f'<option value="{esc(s["id"])}">{esc(s["label"])}</option>' for s in g["semesters"])
+            semester_tabs = "".join(f'''<button class="semester-tab" type="button" role="tab" data-semester-tab="{esc(s["id"])}" aria-selected="{'true' if i == 0 else 'false'}" tabindex="{0 if i == 0 else -1}">{esc(s["label"])}</button>''' for i, s in enumerate(g["semesters"]))
             panels = []
             for semester_index, semester in enumerate(g["semesters"]):
                 topics = "".join(f'''<li data-reveal style="--d:{i * 55 + 180}ms"><span class="n">{i + 1:02d}</span><span>{esc(topic)}</span></li>''' for i, topic in enumerate(semester["topics"]))
@@ -323,7 +323,7 @@ def build_research():
           </div>''')
             content = f'''<div class="issue-report">
           <p class="lead issue-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
-          <label class="semester-control" data-reveal style="--d:150ms"><span>Semester</span><select class="semester-select" data-semester-select aria-label="Issue Report 학기 선택">{options}</select></label>
+          <div class="semester-tabs" role="tablist" aria-label="Issue Report 학기 선택" data-reveal style="--d:150ms">{semester_tabs}</div>
           {chr(10).join(panels)}
         </div>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
