@@ -337,8 +337,12 @@ def build_research():
               <p class="im-category-title">{esc(category["title"])}</p>
               <ol class="im-list">{"".join(f'<li><span class="n">{j + 1:02d}</span><span>{esc(project)}</span></li>' for j, project in enumerate(category["items"]))}</ol>
             </section>''' for i, category in enumerate(semester["categories"]))
+                cover = f'''<figure class="photo im-cover" data-reveal style="--d:160ms">{img(semester["image"], base, semester.get("image_alt", g["heading"]), 1040, 720)}</figure>''' if semester.get("image") else ""
                 panels.append(f'''<div class="semester-panel" data-semester="{esc(semester["id"])}"{'' if semester_index == 0 else ' hidden'}>
-            <div class="im-categories">{categories}</div>
+            <article class="im-layout{'' if cover else ' no-cover'}">
+              {cover}
+              <div class="im-categories">{categories}</div>
+            </article>
           </div>''')
             content = f'''<div class="im-report" data-semester-report>
           <p class="lead im-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>

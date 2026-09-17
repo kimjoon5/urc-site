@@ -302,6 +302,8 @@ main { position: relative; z-index: 10; }
 @media (min-width: 768px) { .semester-tabs { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } .issue-layout { grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr); gap: 34px; } }
 .im-report { max-width: 940px; }
 .im-copy { margin: 0; }
+.im-layout { display: grid; gap: 22px; align-items: start; }
+.im-cover { aspect-ratio: 13 / 9; }
 .im-categories { display: grid; gap: 24px; }
 .im-category { padding: 20px; border: 1px solid var(--line-soft); background: #fff; }
 .im-category-title { font-size: 13px; font-weight: 600; letter-spacing: 0.16em; color: var(--blue); }
@@ -309,6 +311,7 @@ main { position: relative; z-index: 10; }
 .im-list li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line-soft); font-size: 15.5px; font-weight: 500; letter-spacing: -0.01em; color: var(--navy); }
 .im-list .n { padding-top: 2px; color: var(--blue); }
 @media (min-width: 640px) { .im-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } }
+@media (min-width: 768px) { .im-layout { grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr); gap: 34px; } }
 
 /* ── network ───────────────────────────────────────────────── */
 .advisor { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 24px; align-items: start; }

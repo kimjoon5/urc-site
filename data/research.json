@@ -52,6 +52,8 @@
         {
           "id": "24-1",
           "label": "24-1",
+          "image": "assets/img/project-im-24-1.png",
+          "image_alt": "오투타워 Information Memorandum",
           "categories": [
             {
               "title": "실물",
@@ -64,6 +66,8 @@
         {
           "id": "24-2",
           "label": "24-2",
+          "image": "assets/img/project-im-24-2.png",
+          "image_alt": "부산 남천동 시니어 레지던스 개발사업 PF",
           "categories": [
             {
               "title": "실물",
@@ -84,6 +88,8 @@
         {
           "id": "25-1",
           "label": "25-1",
+          "image": "assets/img/project-im-25-1.png",
+          "image_alt": "당산동6가 351-2, 5 개발사업",
           "categories": [
             {
               "title": "실물",
@@ -105,6 +111,8 @@
         {
           "id": "25-2",
           "label": "25-2",
+          "image": "assets/img/project-im-25-2.jpg",
+          "image_alt": "인천 연수구 송도동 605-1 물류센터 개발사업",
           "categories": [
             {
               "title": "실물",
@@ -127,6 +135,8 @@
         {
           "id": "26-1",
           "label": "26-1",
+          "image": "assets/img/project-im-26-1.jpg",
+          "image_alt": "Nine Tree by Parnas 합정 개발사업",
           "categories": [
             {
               "title": "실물",
