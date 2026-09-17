@@ -309,6 +309,15 @@ def build_research():
         </article>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue
+        if g.get("topics"):
+            topics = "".join(f'''<li data-reveal style="--d:{i * 55 + 180}ms"><span class="n">{i + 1:02d}</span><span>{esc(topic)}</span></li>''' for i, topic in enumerate(g["topics"]))
+            content = f'''<div class="issue-report">
+          <p class="lead issue-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
+          <div class="issue-period" data-reveal style="--d:150ms">{esc(g["period"])}</div>
+          <ol class="issue-list">{topics}</ol>
+        </div>'''
+            pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
+            continue
         tiles = []
         for j, it in enumerate(g["items"]):
             inner = f'''<span class="doc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="doc-n">{j + 1:02d}</span>'''
