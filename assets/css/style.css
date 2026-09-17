@@ -69,13 +69,10 @@ body.is-scrolled .nav {
 body.nav-hidden .nav { transform: translateY(-100%); }
 body.menu-open .nav { background: transparent; transform: translateY(0); border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
 
-.brand { position: relative; z-index: 60; display: flex; align-items: center; gap: 12px; }
+.brand { position: relative; z-index: 60; display: flex; align-items: center; gap: 10px; }
 .brand img { width: 34px; height: 34px; }
-.brand-name { font-weight: 700; font-size: 17px; letter-spacing: 0.14em; color: #fff; line-height: 1; transition: color 0.3s; }
-.brand-sub { display: none; font-size: 11px; letter-spacing: 0.02em; margin-top: 5px; color: rgba(255, 255, 255, 0.72); transition: color 0.3s; }
-@media (min-width: 640px) { .brand-sub { display: block; } }
-body.is-scrolled .brand-name { color: var(--navy); }
-body.is-scrolled .brand-sub { color: var(--muted); }
+.brand-wordmark { display: flex; flex-direction: column; font-family: "Cormorant Garamond", var(--font), serif; font-size: 15px; font-weight: 600; line-height: 0.8; letter-spacing: -0.025em; color: #fff; white-space: nowrap; transition: color 0.3s; }
+body.is-scrolled .brand-wordmark { color: var(--navy); }
 
 .nav-links { display: none; margin-left: auto; }
 .nav-links ul { display: flex; align-items: center; gap: 28px; }

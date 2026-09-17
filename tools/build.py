@@ -134,7 +134,7 @@ def shell(page, *, title, description, body_class=""):
   <header class="nav">
     <a class="brand" href="{base or './'}" aria-label="{esc(SITE["org"])}">
       <img src="{base}assets/img/urc-logo.png" alt="" width="36" height="36">
-      <span><span class="brand-name">URC</span><span class="brand-sub">{esc(SITE["org_short"])}</span></span>
+      <span class="brand-wordmark" aria-hidden="true"><span>Yonsei Univ.</span><span>Urban Real-estate Club</span></span>
     </a>
     <nav class="nav-links" aria-label="주 메뉴"><ul>
 {nav_links(base, page.current)}
