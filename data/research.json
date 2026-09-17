@@ -8,7 +8,20 @@
   "groups": [
     {
       "heading": "Market Report",
-      "image": "assets/img/archive-market-ybd.jpg",
+      "images": [
+        {
+          "path": "assets/img/archive-market-ybd.jpg",
+          "alt": "YBD 오피스 마켓리포트"
+        },
+        {
+          "path": "assets/img/project-market-cbd.jpg",
+          "alt": "CBD 오피스 마켓리포트"
+        },
+        {
+          "path": "assets/img/project-market-gbd.jpg",
+          "alt": "GBD 오피스 마켓리포트"
+        }
+      ],
       "description": "매 학기 주요 업무권역의 오피스 마켓리포트를 제작하여 권역별 임대시장과 거래시장, 주요 지표의 변화를 분석하고, 시장 데이터를 투자 관점에서 해석하는 역량을 함양합니다."
     },
     {

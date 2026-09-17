@@ -283,14 +283,14 @@ main { position: relative; z-index: 10; }
 .doc-icon { opacity: 0.75; }
 .doc-n { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: var(--slate); }
 .doc-tag { position: absolute; top: 16px; right: 16px; padding: 3px 8px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; color: #fff; background: var(--blue); }
-.archive-feature { display: grid; gap: 22px; align-items: center; }
-.archive-cover { aspect-ratio: 13 / 9; }
-.archive-copy { margin: 0; }
-@media (min-width: 768px) { .archive-feature { grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr); gap: 42px; } }
+.market-copy { max-width: 860px; margin: 0; }
+.market-gallery { display: grid; gap: 16px; margin-top: 28px; }
+.market-cover { aspect-ratio: 13 / 9; }
+@media (min-width: 768px) { .market-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
 .issue-report { max-width: 860px; }
 .issue-copy { margin: 0; }
 .semester-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px 36px; margin-top: 30px; }
-.semester-tab { padding: 0 0 10px; border-bottom: 1px solid var(--line); color: var(--text-2); font-family: "Cormorant Garamond", var(--font), serif; font-size: clamp(21px, 2vw, 28px); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; text-align: left; transition: color .25s, border-color .25s; }
+.semester-tab { padding: 0 0 10px; border-bottom: 1px solid var(--line); color: var(--text-2); font-family: var(--font); font-size: clamp(16px, 1.45vw, 20px); font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; text-align: left; transition: color .25s, border-color .25s; }
 .semester-tab:hover, .semester-tab[aria-selected="true"] { border-color: var(--blue); color: var(--blue); }
 .semester-panel { margin-top: 16px; }
 .semester-panel[hidden] { display: none; }

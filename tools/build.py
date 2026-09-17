@@ -302,10 +302,11 @@ def build_research():
     keys = ["market", "issue", "im-project"]
     pg.add("hero", d["title"], hero(d["title"], list(zip(keys, d["tabs"])), photo=base + "assets/img/hero-research.jpg"), cls="hero has-photo")
     for k, g, label in zip(keys, d["groups"], d["tabs"]):
-        if g.get("image"):
-            content = f'''<article class="archive-feature">
-          <figure class="photo archive-cover" data-reveal style="--d:140ms">{img(g["image"], base, g["heading"], 1040, 720)}</figure>
-          <p class="lead archive-copy" data-reveal style="--d:220ms">{esc(g["description"])}</p>
+        if g.get("images"):
+            images = "".join(f'''<figure class="photo market-cover" data-reveal style="--d:{i * 80 + 180}ms">{img(image["path"], base, image["alt"], 1040, 720)}</figure>''' for i, image in enumerate(g["images"]))
+            content = f'''<article class="market-report">
+          <p class="lead market-copy" data-reveal style="--d:120ms">{esc(g["description"])}</p>
+          <div class="market-gallery">{images}</div>
         </article>'''
             pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
             continue
