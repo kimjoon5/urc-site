@@ -1,6 +1,6 @@
 {
-  "org": "URC | 연세대학교 도시공학과 부동산학회",
-  "org_short": "연세대학교 도시공학과 부동산학회",
+  "org": "URC | 연세대학교 도시공학과 대체투자학회",
+  "org_short": "연세대학교 도시공학과 대체투자학회",
   "home": "https://urcyonsei.com/",
   "nav": [
     {
@@ -29,7 +29,7 @@
     }
   ],
   "footer": {
-    "org": "연세대학교 도시공학과 부동산학회 URC",
+    "org": "연세대학교 도시공학과 대체투자학회 URC",
     "address": "서울특별시 서대문구 연세로50 연세대학교",
     "copyright": "Copyright©2024 URC All Rights Reserved",
     "contact_title": "Contact Us",
