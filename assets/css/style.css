@@ -322,8 +322,9 @@ main { position: relative; z-index: 10; }
 .role { display: inline-block; padding: 1px 7px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: #fff; background: var(--blue); }
 .mcard-dept { margin-top: 3px; font-size: 11.5px; letter-spacing: 0.03em; color: var(--muted); }
 .mcard-careers { margin-top: 7px; display: grid; gap: 1px; }
-.mcard-careers li { display: flex; gap: 7px; font-size: 12px; line-height: 1.5; color: var(--text-2); }
+.mcard-careers li { display: grid; grid-template-columns: 7px minmax(0, 1fr); gap: 7px; font-size: 12px; line-height: 1.5; color: var(--text-2); }
 .mcard-careers li::before { content: ""; flex: 0 0 7px; height: 1px; margin-top: 9px; background: var(--slate); }
+.mcard-careers li span { min-width: 0; overflow-wrap: anywhere; word-break: keep-all; }
 .net { display: grid; gap: 32px; }
 @media (min-width: 1024px) { .net { grid-template-columns: minmax(0, 1fr) 470px; gap: 64px; align-items: center; } }
 .net-text { font-size: 15.5px; line-height: 1.95; color: var(--text-2); }

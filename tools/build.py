@@ -349,7 +349,7 @@ def build_network():
 
     def card(m, j):
         role = f'<span class="role">{esc(m["role"])}</span>' if m.get("role") else ""
-        careers = ('<ul class="mcard-careers">' + "".join(f"<li>{esc(c)}</li>" for c in m["careers"]) + "</ul>") if m.get("careers") else ""
+        careers = ('<ul class="mcard-careers">' + "".join(f"<li><span>{esc(c)}</span></li>" for c in m["careers"]) + "</ul>") if m.get("careers") else ""
         return f'''<li class="card mcard" data-reveal style="--d:{min(j, 11) * 55}ms">
               <div class="mcard-photo">{img(m["photo"], base, m["name"], 453, 545)}</div>
               <div class="mcard-body"><h4 class="mcard-name"><span>{esc(m["name"])}</span>{role}</h4><p class="mcard-dept">{esc(m["dept"])}</p>{careers}</div>
