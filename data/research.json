@@ -1,27 +1,15 @@
 {
-  "title": "Research",
+  "title": "Archive",
   "tabs": [
     "Market Report",
     "Issue Report",
-    "REITs Report"
+    "IM Project"
   ],
   "groups": [
     {
       "heading": "Market Report",
-      "items": [
-        {
-          "href": null
-        },
-        {
-          "href": "https://urcyonsei.com/wp-content/uploads/2025/06/test.pdf"
-        },
-        {
-          "href": "https://urcyonsei.com/wp-content/uploads/2025/06/test.pdf"
-        },
-        {
-          "href": "https://urcyonsei.com/wp-content/uploads/2025/06/test.pdf"
-        }
-      ]
+      "image": "assets/img/archive-market-ybd.jpg",
+      "description": "매 학기 주요 업무권역의 오피스 마켓리포트를 제작하여 권역별 임대시장과 거래시장, 주요 지표의 변화를 분석하고, 시장 데이터를 투자 관점에서 해석하는 역량을 함양합니다."
     },
     {
       "heading": "Issue Report",
@@ -41,7 +29,7 @@
       ]
     },
     {
-      "heading": "REITs Report",
+      "heading": "IM Project",
       "items": [
         {
           "href": "https://urcyonsei.com/wp-content/uploads/2025/07/URC_2기_리츠매입보고서_2차-완성본.pdf"

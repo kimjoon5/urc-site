@@ -283,6 +283,10 @@ main { position: relative; z-index: 10; }
 .doc-icon { opacity: 0.75; }
 .doc-n { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: var(--slate); }
 .doc-tag { position: absolute; top: 16px; right: 16px; padding: 3px 8px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; color: #fff; background: var(--blue); }
+.archive-feature { display: grid; gap: 22px; align-items: center; }
+.archive-cover { aspect-ratio: 13 / 9; }
+.archive-copy { margin: 0; }
+@media (min-width: 768px) { .archive-feature { grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr); gap: 42px; } }
 
 /* ── network ───────────────────────────────────────────────── */
 .advisor { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 24px; align-items: start; }

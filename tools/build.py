@@ -298,10 +298,17 @@ def build_curriculum():
 def build_research():
     d = load("research")
     base = "../"
-    pg = Page(base, "Research")
-    keys = ["market", "issue", "reits"]
-    pg.add("hero", "Research", hero(d["title"], list(zip(keys, d["tabs"])), photo=base + "assets/img/hero-research.jpg"), cls="hero has-photo")
+    pg = Page(base, d["title"])
+    keys = ["market", "issue", "im-project"]
+    pg.add("hero", d["title"], hero(d["title"], list(zip(keys, d["tabs"])), photo=base + "assets/img/hero-research.jpg"), cls="hero has-photo")
     for k, g, label in zip(keys, d["groups"], d["tabs"]):
+        if g.get("image"):
+            content = f'''<article class="archive-feature">
+          <figure class="photo archive-cover" data-reveal style="--d:140ms">{img(g["image"], base, g["heading"], 1040, 720)}</figure>
+          <p class="lead archive-copy" data-reveal style="--d:220ms">{esc(g["description"])}</p>
+        </article>'''
+            pg.add(k, label, f'''\n        {head(d["title"], g["heading"])}\n        {content}''')
+            continue
         tiles = []
         for j, it in enumerate(g["items"]):
             inner = f'''<span class="doc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="doc-n">{j + 1:02d}</span>'''
@@ -314,7 +321,7 @@ def build_research():
         <div class="doc-grid">
 {chr(10).join(tiles)}
         </div>''')
-    return shell(pg, title=f"Research – URC | {SITE['org_short']}", description=" · ".join(d["tabs"]))
+    return shell(pg, title=f"{d['title']} – URC | {SITE['org_short']}", description=" · ".join(d["tabs"]))
 
 
 def build_network():
