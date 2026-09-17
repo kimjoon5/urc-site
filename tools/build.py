@@ -275,7 +275,7 @@ def build_curriculum():
         </article>''')
     ext = "\n".join(
         f'''<div class="card ext-card" data-reveal style="--d:{i * 70}ms">
-            <div class="ext-logo">{img(e["logo"], base, e["title"], 900, 500)}</div>
+            <div class="ext-logo{(' ' + esc(e['logo_class'])) if e.get('logo_class') else ''}">{img(e["logo"], base, e["title"], 900, 500)}</div>
             <h3><span class="n">{i + 1:02d}</span>{esc(e["title"])}</h3>
           </div>''' for i, e in enumerate(d["external"])
     )

@@ -67,6 +67,15 @@
     {
       "logo": "assets/img/cur-ext-kredit.jpg",
       "title": "고려대 KREDIT IM 연고전"
+    },
+    {
+      "logo": "assets/img/cur-ext-krea.png",
+      "logo_class": "is-krea",
+      "title": "건국대 KREA 합동 IM 제작"
+    },
+    {
+      "logo": "assets/img/cur-ext-recs.png",
+      "title": "서강대 RECS 연합세션"
     }
   ],
   "networking": {
