@@ -3,6 +3,21 @@
    white-dominant surface, navy palette used sparingly, square edges
    0D1B2A · 1B263B · 415A77 · 778DA9 · E0E1DD
    ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/cormorant-garamond-latin-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/cormorant-garamond-latin-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 500;
+  font-display: block;
+}
+
 :root {
   --navy: #0d1b2a;
   --navy-2: #1b263b;
