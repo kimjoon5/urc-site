@@ -254,6 +254,21 @@ main { position: relative; z-index: 10; }
 .greeting-person::after { content: ""; display: block; width: 100%; max-width: 520px; height: 2px; margin-top: 18px; background: linear-gradient(to right, var(--blue) 0 96px, var(--line) 96px 100%); }
 .greeting-person .letter { margin-top: 24px; }
 
+/* ── history ───────────────────────────────────────────────── */
+.history-layout { display: grid; gap: 38px; }
+.history-intro { max-width: 500px; }
+.history-kicker { color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; }
+.history-copy { margin-top: 18px; }
+.history-timeline { position: relative; display: grid; gap: 0; padding-left: 32px; }
+.history-timeline::before { content: ""; position: absolute; top: 10px; bottom: 10px; left: 7px; width: 1px; background: var(--line); }
+.history-item { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding: 0 0 26px; }
+.history-item:last-child { padding-bottom: 0; }
+.history-item::before { content: ""; position: absolute; top: 5px; left: -29px; width: 11px; height: 11px; border: 2px solid var(--blue); border-radius: 50%; background: var(--bg); }
+.history-item:last-child::before { background: var(--blue); box-shadow: 0 0 0 5px rgba(44, 95, 145, 0.12); }
+.history-year { color: var(--blue); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+.history-event { color: var(--navy); font-size: 17px; font-weight: 500; line-height: 1.45; letter-spacing: -0.02em; }
+@media (min-width: 768px) { .history-layout { grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr); gap: 72px; align-items: center; } .history-timeline { padding-left: 38px; } .history-item { grid-template-columns: 82px minmax(0, 1fr); } .history-item::before { left: -35px; } }
+
 /* ── curriculum ────────────────────────────────────────────── */
 .step-bar { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
 .step-bar .n { color: var(--blue); }

@@ -208,7 +208,7 @@ def build_about():
     base = "../"
     pg = Page(base, "About us")
     it, g = d["intro"], d["greetings"]
-    pg.add("hero", "About us", hero(d["title"], [("introduction", d["tabs"][0]), ("greetings", d["tabs"][1])], photo=base + "assets/img/hero-about.jpg"), cls="hero has-photo")
+    pg.add("hero", "About us", hero(d["title"], [("introduction", d["tabs"][0]), ("history", d["tabs"][1]), ("greetings", d["tabs"][2])], photo=base + "assets/img/hero-about.jpg"), cls="hero has-photo")
     paras = "".join(f"<p>{esc(p)}</p>" for p in it["paras"])
     pg.add("introduction", d["tabs"][0], f'''
         {head(d["tabs"][0], it["heading"])}
@@ -235,9 +235,28 @@ def build_about():
         <div class="split-2 values">
 {values}
         </div>''')
+    history = it["history"]
+    history_paras = "".join(f"<p>{esc(p)}</p>" for p in history["paras"])
+    milestones = "\n".join(
+        f'''<li class="history-item" data-reveal style="--d:{i * 90}ms">
+            <p class="history-year">{esc(m["year"])}</p>
+            <p class="history-event">{esc(m["title"])}</p>
+          </li>''' for i, m in enumerate(history["milestones"])
+    )
+    pg.add("history", d["tabs"][1], f'''
+        {head(d["tabs"][1], history["heading"])}
+        <div class="history-layout">
+          <div class="history-intro" data-reveal style="--d:120ms">
+            <p class="history-kicker">URC HISTORY</p>
+            <div class="lead-block history-copy">{history_paras}</div>
+          </div>
+          <ol class="history-timeline">
+{milestones}
+          </ol>
+        </div>''')
     gparas = "".join(f"<p>{esc(p)}</p>" for p in g["paras"])
-    pg.add("greetings", d["tabs"][1], f'''
-        {head(d["tabs"][1])}
+    pg.add("greetings", d["tabs"][2], f'''
+        {head(d["tabs"][2])}
         <article class="split" data-reveal style="--d:120ms">
           <div>
             <div class="photo portrait">{img(g["photo"], base, g["name"], 453, 545)}</div>
