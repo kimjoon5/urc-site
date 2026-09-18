@@ -444,7 +444,7 @@ def build_join():
     d = load("join")
     base = "../"
     pg = Page(base, "Join us")
-    pg.add("hero", "Join us", hero(d["title"], [("recruitment", d["tabs"][0]), ("faq", d["tabs"][1])], photo=base + "assets/img/hero-join.jpg"), cls="hero has-photo")
+    pg.add("hero", "Join us", hero(d["title"], [("recruitment", d["tabs"][0]), ("faq", d["tabs"][1])], photo=base + "assets/img/hero-join.png"), cls="hero has-photo")
     blocks = {}
     for i, b in enumerate(d["recruit"]):
         h = b["heading"]
