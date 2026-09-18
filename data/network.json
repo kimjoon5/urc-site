@@ -55,7 +55,7 @@
         },
         {
           "name": "김재헌",
-          "role": null,
+          "role": "Co-founder",
           "dept": "도시공학과 18",
           "careers": [
             "안다자산운용",
@@ -65,7 +65,7 @@
         },
         {
           "name": "김재준",
-          "role": null,
+          "role": "Co-founder",
           "dept": "도시공학과 19",
           "careers": [
             "타이거대체투자운용",
@@ -75,7 +75,7 @@
         },
         {
           "name": "윤현수",
-          "role": null,
+          "role": "Co-founder",
           "dept": "도시공학과 19",
           "careers": [
             "JLP International",
@@ -86,7 +86,7 @@
         },
         {
           "name": "최윤혁",
-          "role": null,
+          "role": "Co-founder",
           "dept": "도시공학과 19",
           "careers": [
             "LX인터내셔널",
